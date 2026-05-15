@@ -28,17 +28,19 @@ const skillGroups = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="section" style={{ background: "var(--bg-secondary)" }}>
-      <div className="container">
+    <section id="skills" className="section">
+      <div className="divider" />
+      <div className="container" style={{ marginTop: "3rem" }}>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          style={{ textAlign: "center", marginBottom: "4rem" }}
+          className="section-title"
         >
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Technical <span className="accent-text">Skills</span></h2>
-          <p>A comprehensive toolkit for data engineering and business intelligence.</p>
+          <div className="section-icon"><Database size={20} /></div>
+          <h2 style={{ fontSize: "2rem" }}>Technical <span className="accent-text">Skills</span></h2>
+          <p style={{ fontSize: "0.95rem" }}>A comprehensive toolkit for data engineering.</p>
         </motion.div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem" }}>

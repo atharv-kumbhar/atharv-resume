@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
+import BackgroundGraphics from "@/components/BackgroundGraphics";
 
 export const metadata: Metadata = {
   title: "Atharv Kumbhar | SQL & PL/SQL Expert | Power BI Developer",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Preloader />
+        <BackgroundGraphics />
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -27,16 +27,18 @@ const Education = () => {
 
   return (
     <section id="education" className="section">
-      <div className="container">
+      <div className="divider" />
+      <div className="container" style={{ marginTop: "3rem" }}>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          style={{ textAlign: "center", marginBottom: "4rem" }}
+          className="section-title"
         >
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Academic <span className="accent-text">Background</span></h2>
-          <p>The foundation of my analytical mindset and technical expertise.</p>
+          <div className="section-icon"><GraduationCap size={20} /></div>
+          <h2 style={{ fontSize: "2rem" }}>Academic <span className="accent-text">Background</span></h2>
+          <p style={{ fontSize: "0.95rem" }}>The foundation of my technical expertise.</p>
         </motion.div>
 
         <motion.div 

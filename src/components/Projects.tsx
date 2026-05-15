@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Database, BarChart, Smartphone } from "lucide-react";
+import { ExternalLink, Database, BarChart, Smartphone, Folder } from "lucide-react";
 
 const projects = [
   {
@@ -56,17 +56,19 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="section" style={{ background: "var(--bg-secondary)" }}>
-      <div className="container">
+    <section id="projects" className="section">
+      <div className="divider" />
+      <div className="container" style={{ marginTop: "3rem" }}>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          style={{ textAlign: "center", marginBottom: "4rem" }}
+          className="section-title"
         >
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Featured <span className="accent-text">Projects</span></h2>
-          <p>A selection of my recent work in database automation and data visualization.</p>
+          <div className="section-icon"><Folder size={20} /></div>
+          <h2 style={{ fontSize: "2rem" }}>Featured <span className="accent-text">Projects</span></h2>
+          <p style={{ fontSize: "0.95rem" }}>A selection of my recent database automation work.</p>
         </motion.div>
 
         <motion.div 

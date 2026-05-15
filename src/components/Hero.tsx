@@ -10,85 +10,81 @@ const Hero = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2,
       }
     }
   };
 
   const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    hidden: { opacity: 0, y: 15 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4 } }
   };
 
   return (
-    <section className="section" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "8rem", position: "relative", overflow: "hidden" }}>
+    <section className="section" style={{ minHeight: "85vh", display: "flex", alignItems: "center", paddingTop: "6rem", position: "relative" }}>
       <div className="container">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          style={{ maxWidth: "850px" }}
         >
-          <motion.div variants={item}>
-            <span className="badge" style={{ marginBottom: "2rem", display: "inline-block" }}>
-              <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: "var(--accent-secondary)", marginRight: "8px" }} />
-              Available for Data Engineering Roles
-            </span>
+          <motion.div variants={item} style={{ marginBottom: "1rem" }}>
+            <h2 className="accent-text" style={{ fontSize: "1.25rem", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.15em" }}>
+              Atharv Kumbhar
+            </h2>
           </motion.div>
           
           <motion.h1 
             variants={item}
-            style={{ fontSize: "clamp(3.5rem, 9vw, 6rem)", marginBottom: "2rem", lineHeight: "1.05", fontWeight: "800" }}
+            style={{ fontSize: "clamp(3rem, 8vw, 5rem)", marginBottom: "1.5rem", lineHeight: "1.1", fontWeight: "800" }}
           >
-            Crafting <span className="accent-text">Data</span> <br /> 
-            into Decisions<span className="accent-text">.</span>
+            SQL & PL/SQL <br /> 
+            <span className="accent-text">Expert.</span>
           </motion.h1>
 
           <motion.p 
             variants={item}
-            style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)", marginBottom: "3rem", color: "var(--text-secondary)", maxWidth: "700px", lineHeight: "1.5" }}
+            style={{ fontSize: "clamp(1rem, 1.8vw, 1.2rem)", marginBottom: "2.5rem", color: "var(--text-secondary)", maxWidth: "600px", lineHeight: "1.4" }}
           >
-            I&apos;m <span style={{ color: "var(--text-primary)", fontWeight: "600" }}>Atharv Kumbhar</span>, a SQL & PL/SQL expert 
-            dedicated to building scalable database solutions and high-performance visual analytics.
+            I build scalable database solutions and high-performance visual analytics with SQL, Power BI, and Power Apps.
           </motion.p>
 
           <motion.div
             variants={item}
-            style={{ display: "flex", flexWrap: "wrap", gap: "2rem", marginBottom: "4rem" }}
+            style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", marginBottom: "3rem" }}
           >
-            <ContactInfo icon={<Mail size={18} />} label="katharv925@gmail.com" />
-            <ContactInfo icon={<Phone size={18} />} label="7420004493" />
-            <ContactInfo icon={<MapPin size={18} />} label="Pune, India" />
+            <ContactInfo icon={<Mail size={16} />} label="katharv925@gmail.com" />
+            <ContactInfo icon={<Phone size={16} />} label="7420004493" />
+            <ContactInfo icon={<MapPin size={16} />} label="Pune, India" />
           </motion.div>
 
           <motion.div
             variants={item}
-            style={{ display: "flex", gap: "1.25rem", alignItems: "center", flexWrap: "wrap" }}
+            style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap" }}
           >
             <motion.a 
               href="#projects" 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               style={{ 
-                padding: "1.2rem 2.8rem", 
+                padding: "1rem 2rem", 
                 borderRadius: "100px", 
                 display: "flex",
                 alignItems: "center",
-                gap: "0.75rem",
+                gap: "0.5rem",
                 background: "var(--accent-primary)",
                 color: "#fff",
                 fontWeight: "600",
-                fontSize: "1.1rem",
+                fontSize: "1rem",
                 border: "none",
                 cursor: "pointer",
               }}
             >
-              Explore Projects <ArrowRight size={20} />
+              View Work <ArrowRight size={18} />
             </motion.a>
             <motion.a 
               href="#skills"
               whileHover={{ x: 5 }}
-              style={{ color: "var(--text-primary)", fontWeight: "600", fontSize: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}
+              style={{ color: "var(--text-primary)", fontWeight: "600", fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "0.5rem" }}
             >
               My Skills
             </motion.a>
@@ -100,8 +96,8 @@ const Hero = () => {
 };
 
 const ContactInfo = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
-  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", color: "var(--text-secondary)", fontSize: "1rem" }}>
-    <span style={{ color: "var(--accent-primary)", background: "rgba(108, 142, 242, 0.05)", padding: "0.5rem", borderRadius: "10px" }}>{icon}</span>
+  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
+    <span style={{ color: "var(--accent-primary)", background: "rgba(108, 142, 242, 0.05)", padding: "0.4rem", borderRadius: "8px" }}>{icon}</span>
     <span>{label}</span>
   </div>
 );
