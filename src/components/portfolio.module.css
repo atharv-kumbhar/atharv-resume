@@ -1,0 +1,877 @@
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.section {
+  position: relative;
+  padding: 5.5rem 0;
+}
+
+.heroSection {
+  min-height: 100vh;
+  padding-top: 8.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sectionHeader {
+  max-width: 44rem;
+  margin-bottom: 2.8rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  color: var(--text);
+}
+
+.sectionText {
+  margin-top: 1rem;
+  max-width: 40rem;
+  font-size: 1rem;
+}
+
+.subsectionTitle {
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.navShell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 1rem 0;
+  transition: padding 0.3s ease, transform 0.3s ease;
+}
+
+.navScrolled {
+  padding: 0.75rem 0;
+}
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 252, 247, 0.76);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 30px rgba(87, 81, 73, 0.08);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(120, 167, 160, 0.26), rgba(239, 201, 172, 0.38));
+  color: var(--text);
+  font-family: var(--font-heading), "Trebuchet MS", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.brandText strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.brandText small {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.navDesktop {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.navLink,
+.navAction {
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.navLink {
+  padding: 0.75rem 0.95rem;
+  color: var(--muted-strong);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.navLink:hover {
+  background: rgba(120, 167, 160, 0.08);
+  color: var(--text);
+}
+
+.navAction,
+.drawerAction,
+.primaryButton,
+.secondaryButton,
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.navAction,
+.primaryButton {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  color: #fdfcf8;
+  box-shadow: 0 14px 34px rgba(79, 134, 128, 0.24);
+}
+
+.navAction {
+  padding: 0.85rem 1.15rem;
+  font-size: 0.92rem;
+}
+
+.navAction:hover,
+.primaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.mobileToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(120, 167, 160, 0.1);
+  cursor: pointer;
+}
+
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 21;
+  background: rgba(28, 38, 43, 0.18);
+}
+
+.drawer {
+  position: fixed;
+  top: 5.4rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 22;
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.6rem;
+  background: rgba(255, 252, 248, 0.98);
+  box-shadow: var(--shadow-soft);
+}
+
+.drawerLink {
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  color: var(--text);
+  font-weight: 600;
+  background: rgba(120, 167, 160, 0.06);
+}
+
+.drawerAction {
+  margin-top: 0.35rem;
+  padding: 0.95rem 1rem;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle {
+  max-width: 10ch;
+  font-size: clamp(3.25rem, 8vw, 6.35rem);
+  line-height: 0.95;
+  color: var(--text);
+}
+
+.heroLead {
+  max-width: 40rem;
+  margin-top: 1.4rem;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 3.5rem;
+  padding: 0 1.35rem;
+  font-size: 0.98rem;
+}
+
+.secondaryButton,
+.backToTop {
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 248, 0.78);
+  color: var(--text);
+}
+
+.contactRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.contactCard,
+.footerContactCard {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background: rgba(255, 253, 249, 0.68);
+  box-shadow: var(--shadow-card);
+}
+
+.contactCard > span:last-child,
+.footerContactCard > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.contactCard strong,
+.footerContactCard strong {
+  color: var(--text);
+  font-size: 0.86rem;
+}
+
+.contactIcon,
+.capabilityIcon,
+.educationIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  color: var(--accent-strong);
+  background: rgba(120, 167, 160, 0.12);
+}
+
+.contactIcon {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.heroStatGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+
+.heroStatCard {
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background: rgba(255, 250, 244, 0.75);
+}
+
+.heroStatCard span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.heroStatCard strong {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.heroPanel,
+.workingStyleCard,
+.sidePanel,
+.footerPanel {
+  border: 1px solid var(--line);
+  border-radius: 2rem;
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.9), rgba(255, 248, 240, 0.8));
+  box-shadow: var(--shadow-soft);
+}
+
+.heroPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 1.5rem;
+}
+
+.heroPanelHeader,
+.additionalWorkHeader,
+.footerActions,
+.experienceMeta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.softBadge,
+.panelPill,
+.projectCategory,
+.dateBadge,
+.roleTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.softBadge,
+.panelPill,
+.projectCategory,
+.roleTag {
+  padding: 0.6rem 0.85rem;
+}
+
+.softBadge {
+  background: rgba(200, 220, 239, 0.45);
+  color: var(--muted-strong);
+}
+
+.panelPill {
+  background: rgba(239, 201, 172, 0.44);
+  color: var(--text);
+}
+
+.panelBlock {
+  padding: 1rem 0;
+}
+
+.panelLabel {
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.panelTitle {
+  margin-top: 0.7rem;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.04;
+  color: var(--text);
+}
+
+.panelText {
+  margin-top: 0.9rem;
+}
+
+.signalList,
+.experienceList,
+.projectFeatureList {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.signalItem {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.signalItem p {
+  flex: 1;
+  margin-top: -0.1rem;
+}
+
+.signalBullet,
+.timelineDot {
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+}
+
+.signalBullet {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-top: 0.45rem;
+  box-shadow: 0 0 0 0.28rem rgba(120, 167, 160, 0.12);
+}
+
+.stackPanel {
+  padding: 1.25rem;
+  border: 1px solid rgba(120, 167, 160, 0.14);
+  border-radius: 1.5rem;
+  background: rgba(234, 245, 239, 0.54);
+}
+
+.stackChips,
+.chipWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.stackChips {
+  margin-top: 0.8rem;
+}
+
+.stackChip,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.stackChip {
+  padding: 0.55rem 0.9rem;
+  background: rgba(255, 252, 247, 0.7);
+  color: var(--muted-strong);
+}
+
+.capabilityGrid,
+.projectGrid,
+.educationGrid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.capabilityGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.capabilityCard,
+.projectCard,
+.educationCard,
+.additionalWorkCard {
+  border: 1px solid var(--line);
+  border-radius: 1.8rem;
+  background: rgba(255, 252, 248, 0.74);
+  box-shadow: var(--shadow-card);
+}
+
+.capabilityCard {
+  padding: 1.4rem;
+}
+
+.capabilityHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.capabilityHeader h3,
+.projectTitle,
+.experienceTitle,
+.educationMeta h3,
+.footerTitle {
+  color: var(--text);
+}
+
+.capabilityHeader h3 {
+  font-size: 1.3rem;
+}
+
+.capabilityIcon,
+.educationIcon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.capabilityText,
+.projectDescription {
+  margin-top: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  padding: 0.55rem 0.9rem;
+  background: rgba(120, 167, 160, 0.09);
+  color: var(--muted-strong);
+}
+
+.workingStyleCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.4rem;
+  padding: 1.5rem;
+}
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.65fr);
+  gap: 1.2rem;
+}
+
+.experienceCard {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 2rem;
+  background: rgba(255, 252, 247, 0.82);
+  box-shadow: var(--shadow-card);
+}
+
+.experienceTimeline {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.experienceTimeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(120, 167, 160, 0.65), rgba(120, 167, 160, 0));
+}
+
+.timelineDot {
+  position: relative;
+  margin-top: 0.4rem;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.experienceBody {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.roleTag {
+  color: var(--accent-strong);
+  background: rgba(120, 167, 160, 0.1);
+}
+
+.experienceTitle {
+  margin-top: 0.7rem;
+  font-size: 1.65rem;
+  line-height: 1.1;
+}
+
+.dateBadge {
+  padding: 0.62rem 0.92rem;
+  background: rgba(239, 201, 172, 0.42);
+  color: var(--text);
+}
+
+.sidePanel {
+  padding: 1.5rem;
+}
+
+.projectGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projectCard {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.projectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projectCategory {
+  background: rgba(200, 220, 239, 0.4);
+  color: var(--muted-strong);
+  text-transform: capitalize;
+}
+
+.projectTitle {
+  font-size: 1.45rem;
+  line-height: 1.12;
+}
+
+.additionalWorkCard {
+  margin-top: 1.2rem;
+  padding: 1.35rem;
+}
+
+.educationGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.educationCard {
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem;
+}
+
+.educationMeta {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.educationMeta h3 {
+  font-size: 1.25rem;
+  line-height: 1.12;
+}
+
+.educationMeta strong {
+  color: var(--muted-strong);
+  font-size: 0.96rem;
+}
+
+.footer {
+  padding: 0 0 3rem;
+}
+
+.footerPanel {
+  display: grid;
+  gap: 1.4rem;
+  padding: 1.7rem;
+}
+
+.footerIntro {
+  max-width: 46rem;
+}
+
+.footerTitle {
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  line-height: 1.04;
+}
+
+.footerContacts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.footerActions {
+  align-items: center;
+}
+
+.backToTop {
+  min-height: 3.3rem;
+  padding: 0 1.2rem;
+  cursor: pointer;
+}
+
+.footerMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0 0.2rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.backgroundWrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.backgroundGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(120, 167, 160, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 167, 160, 0.08) 1px, transparent 1px);
+  background-size: 92px 92px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.72), transparent 88%);
+}
+
+.backgroundOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.backgroundOrbOne {
+  top: 7%;
+  left: -3%;
+  width: 26rem;
+  height: 26rem;
+  background: rgba(239, 201, 172, 0.38);
+}
+
+.backgroundOrbTwo {
+  top: 14%;
+  right: 3%;
+  width: 24rem;
+  height: 24rem;
+  background: rgba(200, 220, 239, 0.46);
+}
+
+.backgroundOrbThree {
+  bottom: 6%;
+  left: 32%;
+  width: 22rem;
+  height: 22rem;
+  background: rgba(120, 167, 160, 0.24);
+}
+
+.backgroundBeam {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(120, 167, 160, 0.55), transparent);
+}
+
+.backgroundBeamOne {
+  top: 26%;
+  left: 0;
+  width: 34rem;
+}
+
+.backgroundBeamTwo {
+  bottom: 22%;
+  right: 0;
+  width: 28rem;
+}
+
+@media (max-width: 1024px) {
+  .heroGrid,
+  .experienceGrid,
+  .workingStyleCard,
+  .projectGrid,
+  .capabilityGrid,
+  .educationGrid,
+  .contactRow,
+  .footerContacts {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    max-width: 100%;
+  }
+
+  .heroPanelHeader,
+  .experienceMeta,
+  .additionalWorkHeader,
+  .footerActions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .navDesktop {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .heroSection {
+    min-height: auto;
+    padding-top: 7rem;
+  }
+
+  .navRow {
+    border-radius: 1.3rem;
+  }
+
+  .brandText small {
+    display: none;
+  }
+
+  .heroPanel,
+  .experienceCard,
+  .sidePanel,
+  .capabilityCard,
+  .projectCard,
+  .educationCard,
+  .workingStyleCard,
+  .footerPanel {
+    padding: 1.2rem;
+    border-radius: 1.45rem;
+  }
+
+  .experienceCard {
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+  }
+
+  .footerMeta {
+    flex-direction: column;
+  }
+}

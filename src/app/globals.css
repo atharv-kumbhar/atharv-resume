@@ -1,128 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
 :root {
-  --bg-primary: #fdfdfd;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --accent-primary: #6c8ef2;
-  --accent-secondary: #6bd4a1;
-  --text-primary: #1a202c;
-  --text-secondary: #4a5568;
-  --text-muted: #718096;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --glass-blur: blur(12px);
-  --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.04);
-  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg: #f6f0e8;
+  --bg-soft: #fbf7f2;
+  --surface: rgba(255, 253, 249, 0.78);
+  --surface-strong: rgba(255, 251, 245, 0.96);
+  --surface-accent: rgba(234, 245, 239, 0.84);
+  --surface-highlight: rgba(245, 233, 223, 0.92);
+  --line: rgba(62, 79, 86, 0.14);
+  --line-strong: rgba(62, 79, 86, 0.22);
+  --text: #1d2a31;
+  --muted: #5d6d74;
+  --muted-strong: #44545b;
+  --accent: #78a7a0;
+  --accent-strong: #4f8680;
+  --accent-warm: #efc9ac;
+  --accent-cool: #c8dcef;
+  --shadow-soft: 0 24px 70px rgba(87, 81, 73, 0.12);
+  --shadow-card: 0 18px 40px rgba(87, 81, 73, 0.08);
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+html {
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
+  scroll-padding-top: 6rem;
 }
 
 body {
   min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(239, 201, 172, 0.35), transparent 28%),
+    radial-gradient(circle at 85% 12%, rgba(200, 220, 239, 0.38), transparent 26%),
+    linear-gradient(180deg, #fdf9f4 0%, #f7f1e9 42%, #f8f5ef 100%);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main {
   position: relative;
+  z-index: 1;
 }
 
-.glass-card, .badge, .motion-div {
-  will-change: transform, opacity;
-  transform: translateZ(0);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
-.section-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 3rem;
-  text-align: center;
+button {
+  border: 0;
+  background: none;
 }
 
-.section-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(108, 142, 242, 0.08);
-  border: 1px solid rgba(108, 142, 242, 0.1);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-primary);
-  margin-bottom: 0.5rem;
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), "Trebuchet MS", sans-serif;
+  letter-spacing: -0.04em;
 }
 
-.section {
-  padding: 4rem 0;
-  position: relative;
+p {
+  color: var(--muted);
+  line-height: 1.75;
 }
 
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  padding: 1.5rem;
-  transition: var(--transition-smooth);
-  box-shadow: var(--shadow-premium);
+::selection {
+  background: rgba(120, 167, 160, 0.22);
 }
 
-.glass-card:hover {
-  border-color: var(--accent-primary);
-  transform: translateY(-3px);
-}
-
-.accent-text {
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.badge {
-  padding: 0.3rem 0.8rem;
-  border-radius: 100px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  background: rgba(108, 142, 242, 0.06);
-  border: 1px solid rgba(108, 142, 242, 0.1);
-  color: var(--accent-primary);
-}
-
-/* Section Dividers */
-.divider {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(to right, transparent, var(--glass-border), transparent);
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 3rem 0;
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 5rem;
   }
 }

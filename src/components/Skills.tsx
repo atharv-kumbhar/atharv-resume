@@ -1,81 +1,106 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Database, Layout, BarChart3, Cloud } from "lucide-react";
+import { BarChart3, Cloud, Database, Layout } from "lucide-react";
+import styles from "./portfolio.module.css";
 
-const skillGroups = [
+const capabilityGroups = [
   {
-    title: "SQL & PL/SQL",
-    icon: <Database size={24} />,
-    skills: ["Joins", "Subqueries", "Views", "Constraints", "Analytical Functions", "Functions", "Stored Procedures", "Cursors", "Triggers"]
+    title: "Database Engineering",
+    icon: <Database size={20} />,
+    summary: "Structured SQL and PL/SQL work focused on stability, logic clarity, and maintainable reporting layers.",
+    skills: ["Joins", "Subqueries", "Views", "Constraints", "Analytical Functions", "Stored Procedures", "Triggers", "Cursors"],
   },
   {
-    title: "Power BI",
-    icon: <BarChart3 size={24} />,
-    skills: ["Data Modeling", "DAX", "Visualization", "KPI Design", "Dashboard Optimization"]
+    title: "Business Intelligence",
+    icon: <BarChart3 size={20} />,
+    summary: "Power BI dashboards designed for operational reviews, KPI visibility, and stakeholder-ready storytelling.",
+    skills: ["Data Modeling", "DAX", "Dashboard Design", "KPI Tracking", "Interactive Filtering", "Performance Tuning"],
   },
   {
-    title: "Power Apps",
-    icon: <Layout size={24} />,
-    skills: ["Custom Apps", "SharePoint Integration", "Power Fx", "Role-based UI"]
+    title: "Workflow Apps",
+    icon: <Layout size={20} />,
+    summary: "Business-facing Power Apps experiences that reduce manual work and improve process transparency.",
+    skills: ["Power Apps", "Power Fx", "SharePoint Integration", "Validation Logic", "Role-based UI", "Patch Workflows"],
   },
   {
-    title: "Big Data",
-    icon: <Cloud size={24} />,
-    skills: ["Databricks", "PySpark", "Scala"]
-  }
+    title: "Pipeline Support",
+    icon: <Cloud size={20} />,
+    summary: "Hands-on exposure to maintaining and troubleshooting production data pipelines and job execution flows.",
+    skills: ["Databricks", "PySpark", "Scala", "Support Tickets", "ETL Monitoring", "Issue Triage"],
+  },
+];
+
+const workingStyle = [
+  "I prefer systems that are readable, testable, and easy for the next engineer to own.",
+  "I design with both technical teams and business users in mind, so outputs feel useful instead of merely correct.",
+  "I care about supportability: fewer manual hand-offs, fewer hidden failure points, and cleaner reporting logic.",
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="section">
-      <div className="divider" />
-      <div className="container" style={{ marginTop: "3rem" }}>
+    <section id="skills" className={styles.section}>
+      <div className={styles.container}>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          className={styles.sectionHeader}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="section-title"
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.55 }}
         >
-          <div className="section-icon"><Database size={20} /></div>
-          <h2 style={{ fontSize: "2rem" }}>Technical <span className="accent-text">Skills</span></h2>
-          <p style={{ fontSize: "0.95rem" }}>A comprehensive toolkit for data engineering.</p>
+          <span className={styles.eyebrow}>Capabilities</span>
+          <h2 className={styles.sectionTitle}>A portfolio built around data reliability, business clarity, and usable delivery.</h2>
+          <p className={styles.sectionText}>
+            The stack is practical by design: strong database logic, thoughtful reporting layers, and workflow tools that help teams move.
+          </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem" }}>
-          {skillGroups.map((group, index) => (
-            <motion.div
+        <div className={styles.capabilityGrid}>
+          {capabilityGroups.map((group, index) => (
+            <motion.article
               key={group.title}
-              initial={{ opacity: 0, y: 20 }}
+              className={styles.capabilityCard}
+              initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="glass-card"
-              style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+              viewport={{ once: true, margin: "-120px" }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                <span style={{ color: "var(--accent-primary)", background: "rgba(0, 163, 255, 0.1)", padding: "0.75rem", borderRadius: "12px" }}>
-                  {group.icon}
-                </span>
-                <h3 style={{ fontSize: "1.25rem" }}>{group.title}</h3>
+              <div className={styles.capabilityHeader}>
+                <span className={styles.capabilityIcon}>{group.icon}</span>
+                <h3>{group.title}</h3>
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+              <p className={styles.capabilityText}>{group.summary}</p>
+              <div className={styles.chipWrap}>
                 {group.skills.map((skill) => (
-                  <span key={skill} style={{ 
-                    fontSize: "0.8rem", 
-                    padding: "0.3rem 0.8rem", 
-                    background: "var(--bg-tertiary)", 
-                    borderRadius: "6px",
-                    color: "var(--text-secondary)"
-                  }}>
+                  <span key={skill} className={styles.chip}>
                     {skill}
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
+
+        <motion.div
+          className={styles.workingStyleCard}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.12 }}
+        >
+          <div>
+            <span className={styles.eyebrow}>Working style</span>
+            <h3 className={styles.subsectionTitle}>How I like to build</h3>
+          </div>
+          <div className={styles.signalList}>
+            {workingStyle.map((item) => (
+              <div key={item} className={styles.signalItem}>
+                <span className={styles.signalBullet} />
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
